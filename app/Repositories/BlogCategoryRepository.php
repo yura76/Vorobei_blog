@@ -74,4 +74,14 @@ class BlogCategoryRepository extends CoreRepository
 
         return $result;
     }
+    public function getAll()
+    {
+
+        $result = $this
+            ->startConditions()
+            ->with(['parentCategory:id,title',])
+            ->get();
+
+        return $result;
+    }
 }

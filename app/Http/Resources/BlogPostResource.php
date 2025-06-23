@@ -18,7 +18,7 @@ class BlogPostResource extends JsonResource
         return [
             'id' => $this->id,
             'username' => $this->user->name,
-            'category' => $this->category->title,
+            'category' => $this->category ? $this->category->title: null,
             'title' => $this->title,
             'published_at' => $this->published_at,
             'is_published' => $this->is_published,
