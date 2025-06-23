@@ -47,4 +47,10 @@ class BlogPostRepository extends CoreRepository
     {
         return $this->startConditions()->find($id);
     }
+    public function getById($id)
+    {
+        return $this->startConditions()
+            ->with(['category:id,title', 'user:id,name'])
+            ->find($id);
+    }
 }
